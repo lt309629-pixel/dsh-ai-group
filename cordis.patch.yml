@@ -1,0 +1,4 @@
+# dsh-ai-group bundle patch：把「AI 群」插件挂进 DSH 配置树
+- insert:
+    - id: dsh-ai-group
+      name: 'dsh-ai-group'

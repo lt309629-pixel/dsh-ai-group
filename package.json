@@ -1,0 +1,63 @@
+{
+  "name": "dsh-ai-group",
+  "version": "0.1.0",
+  "description": "AI 群：把元宝、DeepSeek、豆包放进同一个群聊，一句话三家同问同答。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "icon.png",
+    "preview.png"
+  ],
+  "icon": "icon.png",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "ai-group",
+    "yuanbao",
+    "doubao",
+    "deepseek",
+    "chat"
+  ],
+  "license": "MIT",
+  "author": "dsh-ai-group contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lt309629-pixel/dsh-ai-group.git"
+  },
+  "homepage": "https://github.com/lt309629-pixel/dsh-ai-group#readme",
+  "bugs": {
+    "url": "https://github.com/lt309629-pixel/dsh-ai-group/issues"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "dsh": "^0.2.1-rc.5"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": "^0.2.0-rc.1"
+  }
+}
