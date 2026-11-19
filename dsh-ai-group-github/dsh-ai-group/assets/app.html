@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 群</title>
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8.5 17.5 4.5 20v-4.2A6.5 6.5 0 0 1 11 9h2.5a6.5 6.5 0 0 1 6.5 6.5v.5a6.5 6.5 0 0 1-6.5 6.5H8.5Z" />
+              <path d="M9 5.5A4.5 4.5 0 0 1 13.5 1H15a4 4 0 0 1 4 4v.5" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>AI 群</h1>
+            <p>元宝 · DeepSeek · 豆包，同问同答</p>
+          </div>
+        </div>
+        <div class="members" id="members"></div>
+        <div class="actions">
+          <button class="ghost" id="refresh" title="重新检测三个成员的状态">刷新状态</button>
+          <button class="ghost danger" id="reset" title="清空群聊，三家都开新对话">新话题</button>
+        </div>
+      </header>
+
+      <div class="banner" id="banner" hidden>
+        <span id="banner-text"></span>
+        <button class="primary small" id="banner-action">去登录</button>
+      </div>
+
+      <main class="stream" id="stream">
+        <section class="empty" id="empty">
+          <div class="empty-orbit" aria-hidden="true">
+            <span class="orb yuanbao">元</span>
+            <span class="orb deepseek">DS</span>
+            <span class="orb doubao">豆</span>
+          </div>
+          <h2>一句话，三家一起答</h2>
+          <p>发一条消息，元宝、DeepSeek、豆包会同时收到，答案都落在这个群里。</p>
+          <div class="samples" id="samples">
+            <button data-q="用三句话解释一下「量子纠缠」，尽量通俗。">用三句话解释量子纠缠</button>
+            <button data-q="帮我写一个 30 秒短视频脚本，主题是「秋天第一杯奶茶」。">写个 30 秒短视频脚本</button>
+            <button data-q="我明天要去杭州出差两天，帮我列一份轻量行程。">列一份杭州两日行程</button>
+            <button data-q="这段代码哪里有问题：for (let i = 0; i <= arr.length; i++) console.log(arr[i]);">看看这段代码的问题</button>
+          </div>
+        </section>
+        <div class="list" id="list"></div>
+      </main>
+
+      <footer class="composer">
+        <div class="composer-inner">
+          <textarea id="input" rows="1" placeholder="在群里说点什么…（Enter 发送，Shift + Enter 换行）"></textarea>
+          <button class="send" id="send" title="发送（Enter）" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19V5" /><path d="m5 12 7-7 7 7" />
+            </svg>
+          </button>
+        </div>
+        <div class="composer-hint">
+          <span id="hint">三个成员会同时收到这句话</span>
+          <span class="dot-sep">·</span>
+          <span id="busy-hint" hidden>正在等三家回答…</span>
+        </div>
+      </footer>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
